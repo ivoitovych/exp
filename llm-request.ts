@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import { ReadableStream } from 'web-streams-polyfill';
+import https from 'https';
 
 interface LLMMessage {
   role: string;
@@ -11,6 +12,10 @@ interface LLMResponse {
 }
 
 async function* requestCompletion(prompt: string): AsyncGenerator<string> {
+  const httpsAgent = new https.Agent({
+    rejectUnauthorized: false
+  });
+  
   const response = await fetch('https://lou87t87gi89.info:4443/v1/chat/completions', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -19,6 +24,7 @@ async function* requestCompletion(prompt: string): AsyncGenerator<string> {
       messages: [{ role: 'user', content: prompt }],
       stream: true,
     }),
+    agent: httpsAgent as any
   });
 
   if (!response.ok || !response.body) {
@@ -67,4 +73,3 @@ async function* requestCompletion(prompt: string): AsyncGenerator<string> {
   }
   process.stdout.write('\n');
 })();
-
