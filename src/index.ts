@@ -1,10 +1,10 @@
-import { LlavaService } from './llava';
+import { LlavaService } from './llava/index.js';
 
 // Main application entry point
 async function main() {
   try {
     const llavaService = new LlavaService();
-    const prompt = 'What is an apple?';
+    const prompt = 'Please tell me what is an apple?';
     
     console.log(`\nSending prompt: "${prompt}"\n`);
     console.log("Response:");

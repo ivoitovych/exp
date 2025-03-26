@@ -1,1 +1,2 @@
-export * from './LlavaService';
+export * from './LlavaService.js';
+
