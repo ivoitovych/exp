@@ -76,7 +76,7 @@ async function* requestCompletion(prompt: string): AsyncGenerator<string> {
   try {
     const prompt = 'What is an apple?';
     for await (const part of requestCompletion(prompt)) {
-      process.stdout.write(part);
+      process.stdout.write(part + ' ');
     }
     process.stdout.write('\n');
   } catch (error) {
