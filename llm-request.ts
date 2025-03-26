@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import { ReadableStream } from 'web-streams-polyfill';
 
 interface LLMMessage {
   role: string;
@@ -25,7 +26,7 @@ async function* requestCompletion(prompt: string): AsyncIterable<string> {
   }
 
   const decoder = new TextDecoder();
-  const reader = response.body.getReader();
+  const reader = (response.body as unknown as ReadableStream<Uint8Array>).getReader();
   let buffer = '';
 
   while (true) {

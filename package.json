@@ -1,6 +1,7 @@
 {
   "name": "llm-request",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,11 +9,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@types/node-fetch": "^2.6.12",
     "node-fetch": "^2.7.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "web-streams-polyfill": "^4.1.0"
   }
 }
+
