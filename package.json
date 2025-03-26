@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "node dist/llm-request.js"
+    "start": "node dist/llm-request.js",
+    "clean": "rimraf dist node_modules package-lock.json",
+    "rebuild": "npm run clean && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +19,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2",
     "web-streams-polyfill": "^4.1.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
   }
 }
